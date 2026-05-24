@@ -1,3 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* Estlização global, configurada no angular.json */
 @import 'tailwindcss';
+
+@theme {
+    --font-normal: "Roboto", sans-serif;
+    --font-sans: "Slabo 27px", serif;
+}
+
+body {
+    @apply bg-neutral-950 text-neutral-50 font-normal
+}
+
+input {
+    @apply bg-neutral-800 p-2 rounded
+}

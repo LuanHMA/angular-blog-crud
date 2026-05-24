@@ -1,0 +1,26 @@
+<main class="p-6 w-full max-w-4xl mx-auto space-y-4">
+    <a class="flex items-center gap-2 text-sm font-medium" [routerLink]="['/posts']">
+        <span class="w-8 h-8 flex items-center justify-center bg-neutral-800">
+            <svg lucideArrowLeft class="size-5"></svg>
+        </span>
+        Back to posts
+    </a>
+
+    @if(isLoading()){
+    <p>loading post...</p>
+    }
+
+    @else if(error() !== null){
+    <p class="bg-red-950/80 w-full p-4 text-red-400 tracking-wide text-lg">
+        {{ error() }}
+    </p>
+    }
+    @else if (post(); as post){
+    <article class="flex flex-col items-start gap-4">
+        <h1 class="text-3xl sm:text-5xl capitalize text-neutral-50 font-semibold font-sans">{{ post.title }}</h1>
+        <p class="text-base text-neutral-300 sm:text-2xl">{{ post.body }}</p>
+
+        <p class="text-sm tracking-wide">Posted at: {{ postData }}</p>
+    </article>
+    }
+</main>
